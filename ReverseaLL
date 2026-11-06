@@ -1,0 +1,25 @@
+class Node {
+    int data;
+    Node next;
+
+    Node(int data) {
+        this.data = data;
+        this.next = null;
+    }
+}
+public class LinkedListReversal {
+    public static Node reverseList(Node head) {
+        Node prev = null;
+        Node current = head;
+        Node next = null;
+
+        while (current != null) {
+            next = current.next;     // 1. Save the next node
+            current.next = prev;     // 2. Reverse the current node's pointer
+            prev = current;          // 3. Move 'prev' one step forward
+            current = next;          // 4. Move 'current' one step forward
+        }
+        
+        return prev; // 'prev' will be the new head of the reversed list
+    }
+}
